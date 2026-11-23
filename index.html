@@ -20,7 +20,27 @@
   </ul>
 
   <script>
-    // IDE ÍRD A JAVASCRIPT MEGOLDÁSODAT!
+    const inputMezo = document.getElementById('uj-teendo');
+    const hozzaadGomb = document.getElementById('hozzaad-gomb');
+    const lista = document.getElementById('lista');
+
+    hozzaadGomb.addEventListener('click', function() {
+      const teendoSzoveg = inputMezo.value.trim();
+
+      if (teendoSzoveg === '') {
+        return;
+      }
+
+      const ujListaElem = document.createElement('li');
+      ujListaElem.textContent = teendoSzoveg;
+
+      ujListaElem.addEventListener('click', function() {
+        ujListaElem.classList.toggle('kesz');
+      });
+
+      lista.appendChild(ujListaElem);
+      inputMezo.value = '';
+    });
   </script>
 
 </body>
